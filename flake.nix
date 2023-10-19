@@ -33,6 +33,7 @@
         craneLib = (crane.mkLib pkgs).overrideToolchain rustToolchain;
         buildDeps = lib.optionals stdenv.isDarwin (with pkgs.darwin.apple_sdk.frameworks; [
           Security
+          SystemConfiguration
           pkgs.libiconv
         ]);
         crate = craneLib.buildPackage {
